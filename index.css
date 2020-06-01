@@ -13,6 +13,14 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.dblock{
+  display: block !important;
+}
+
+.dinblock{
+  display: inline-block !important;
+}
+
 #loading {
   width: 100vw;
   height: 100vh;
@@ -278,7 +286,7 @@ body {
 }
 
 .section_title {
-  font-size: 24px;
+  font-size: 17px;
   font-weight: bold;
   margin: 1vh 0px;
   padding: 0px 1px;
@@ -286,7 +294,7 @@ body {
 }
 
 .about_section {
-  font-size: 18px;
+  font-size: 17px;
   margin: 2vh 0px;
   word-wrap: break-word;
 }
@@ -303,7 +311,7 @@ body {
 }
 
 .bottom_section span i {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .socials {

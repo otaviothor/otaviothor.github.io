@@ -2,47 +2,21 @@ $.getJSON("data/repos.json", repos => {
   repos.forEach(repo => {
     if (!repo.fork) {
       console.log(`
-          <a href="${repo.html_url}" target="_blank">
-            <section>
-              <div class="section_title">${repo.name}</div>
-              <div class="about_section">
-                <span style="display:block">${repo.description}</span>
-              </div>
-              <div class="bottom_section">
-                <span style="display:inline-block"><i class="fas fa-code"></i> ${repo.language}</span>
-                <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-                <span><i class="fas fa-code-branch"></i> ${repo.forks}</span>
-              </div>
-            </section>
-          </a>
-        `)
+        <a href="${repo.html_url}" target="_blank">
+          <section>
+            <div class="section_title">${repo.name}</div>
+            <div class="about_section">
+              <span class="dblock">${repo.description}</span>
+            </div>
+            <div class="bottom_section">
+              <span class="dinblock"><i class="fas fa-code"></i> ${repo.language}</span>
+              <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+              <span><i class="fas fa-code-branch"></i> ${repo.forks}</span>
+            </div>
+          </section>
+        </a>
+      `)
     } 
-    // else {
-    //   $('.forks').append(`
-    //       <a href="${repo.html_url}" target="_blank">
-    //         <section>
-    //           <div class="section_title">${repo.name}</div>
-    //           <div class="about_section">
-    //             <span style="display:block">${repo.description}</span>
-    //           </div>
-    //           <div class="bottom_section">
-    //             <span style="display:inline-block">
-    //               <i class="fas fa-code"></i> 
-    //               ${repo.language}
-    //             </span>
-    //             <span>
-    //               <i class="fas fa-star"></i> 
-    //               ${repo.stargazers_count}
-    //             </span>
-    //             <span>
-    //               <i class="fas fa-code-branch"></i> 
-    //               ${repo.forks}
-    //             </span>
-    //           </div>
-    //         </section>
-    //       </a>
-    //     `)
-    // }
   })
 
 }).fail(() => {
@@ -69,17 +43,6 @@ const magicProjectsGrid = new MagicGrid({
   useTransform: true
 })
 
-const magicForksGrid = new MagicGrid({
-  container: ".forks_section",
-  animate: false,
-  gutter: 30,
-  static: true,
-  useMin: false,
-  maxColumns: 2,
-  useTransform: true
-})
-
 $("document").ready(() => {
   magicProjectsGrid.listen()
-  // magicForksGrid.listen()
 })
