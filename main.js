@@ -23,26 +23,12 @@ $.getJSON("data/repos.json", repos => {
   return 
 })
 
-setTimeout(function () {
-  document.getElementById("loading").classList.add("animated")
-  document.getElementById("loading").classList.add("fadeOut")
-  setTimeout(function () {
-    document.getElementById("loading").classList.remove("animated")
-    document.getElementById("loading").classList.remove("fadeOut")
-    document.getElementById("loading").style.display = "none"
-  }, 800)
-}, 500)
-
-const magicProjectsGrid = new MagicGrid({
-  container: ".work_section",
-  animate: false,
-  gutter: 30,
-  static: true,
-  useMin: false,
-  maxColumns: 2,
-  useTransform: true
-})
-
-$("document").ready(() => {
-  magicProjectsGrid.listen()
-})
+// setTimeout(function () {
+//   document.getElementById("loading").classList.add("animated")
+//   document.getElementById("loading").classList.add("fadeOut")
+//   setTimeout(function () {
+//     document.getElementById("loading").classList.remove("animated")
+//     document.getElementById("loading").classList.remove("fadeOut")
+//     document.getElementById("loading").style.display = "none"
+//   }, 800)
+// }, 500)
