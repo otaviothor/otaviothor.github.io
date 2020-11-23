@@ -200,14 +200,13 @@ body {
 }
 
 .projects {
-  margin-left: -15px;
-  /* align section w/ heading above */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .projects a {
-  /* 30px is the gutter size in magic grid */
-  width: calc(49% - 30px);
-  /* 49% avoids a weird single column on some wide screens */
+  width: 100%;
   display: flex;
   text-decoration: none;
 }
@@ -348,6 +347,6 @@ body {
       rgba(10, 10, 10, 0.4),
       rgb(10, 10, 10, 0.4)
     ),
-    url("https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+    url("https://images.unsplash.com/photo-1550063873-ab792950096b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   --background-background: #fff;
 }
