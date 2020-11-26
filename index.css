@@ -190,25 +190,21 @@ body {
 }
 
 #work {
-  margin: 2vh 0px;
+  margin: 4vh 0px;
   padding: 4vh 0px !important;
 }
 
-#forks {
-  margin: 2vh 0px;
-  padding: 4vh 0px !important;
-}
-
-.projects {
+/* .projects {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-}
+} */
 
 .projects a {
-  width: 100%;
+  width: calc(49% - 30px);
   display: flex;
   text-decoration: none;
+  /* width: 100%; */
 }
 
 .projects section {
