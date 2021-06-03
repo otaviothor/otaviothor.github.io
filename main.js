@@ -1,84 +1,45 @@
-const workContainer = document.querySelector("#work_section");
+Vue.component("repo-card", {
+  props: ["repo"],
+  template: `
+    <a href="{{ repo.html_url }}">
+      <section>
+        <div class="section_title">{{ repo.name }}</div>
+        <div class="about_section">
+          <span>{{ repo.description }}</span>
+        </div>
+        <div class="bottom_section">
+          <span><i class="fas fa-code"></i>{{ repo.language }}</span>
+          <span><i class="fas fa-star"></i>{{ repo.stargazers_count }}</span>
+        </div>
+      </section>
+    </a>
+  `,
+});
+
+const app = new Vue({
+  el: "#app",
+  data: {
+    repos: [],
+  },
+  methods: {
+    getRepos() {
+      fetch("https://api.github.com/users/otaviothor/repos")
+        .then((res) => res.json())
+        .then((data) => (this.repos = data));
+    },
+  },
+  beforeMount() {
+    this.getRepos();
+  },
+});
 
 setTimeout(function () {
-  $("#loading").addClass("animated");
-  $("#loading").addClass("fadeOut");
+  const loading = document.getElementById("loading");
+  loading.classList.toggle("animated");
+  loading.classList.toggle("fadeOut");
   setTimeout(function () {
-    $("#loading").removeClass("animated");
-    $("#loading").removeClass("fadeOut");
-    $("#loading").css("display", "none");
+    loading.classList.toggle("animated");
+    loading.classList.toggle("fadeOut");
+    loading.style.display = "none";
   }, 800);
 }, 1500);
-
-const magicProjectsGrid = new MagicGrid({
-  container: "#work_section",
-  animate: false,
-  gutter: 30, // default gutter size
-  static: true,
-  useMin: false,
-  maxColumns: 2,
-  useTransform: true,
-});
-
-$("document").ready(() => {
-  magicProjectsGrid.listen();
-});
-
-// const url = `https://api.github.com/users/otaviothor/repos`;
-
-// setTimeout(function () {
-//   $("#loading").addClass("animated");
-//   $("#loading").addClass("fadeOut");
-//   setTimeout(function () {
-//     $("#loading").removeClass("animated");
-//     $("#loading").removeClass("fadeOut");
-//     $("#loading").css("display", "none");
-//   }, 800);
-// }, 500);
-
-// const getRepos = () => fetch(url).then((res) => res.json());
-
-// const generateHTML = (repos) => repos.reduce(
-//     (
-//       accumulator,
-//       { html_url, name, description, language, stargazers_count, forks }
-//     ) => {
-//       accumulator += `
-//         <a href="${html_url ?? ""}">
-//           <section>
-//             <div class="section_title">${name ?? ""}</div>
-//             <div class="about_section">
-//               <span>${description ?? ""}</span>
-//             </div>
-//             <div class="bottom_section">
-//               <span><i class="fas fa-code"></i>${language ?? ""}</span>
-//               <span><i class="fas fa-star"></i>${stargazers_count ?? ""}</span>
-//               <span><i class="fas fa-code-branch"></i>${forks ?? ""}</span>
-//             </div>
-//           </section>
-//         </a>
-//       `;
-
-//       return accumulator
-//     },
-//     ""
-//   )
-
-// const insertReposIntoPage = repos => {
-//   $("#work_section").html(repos);
-//   setTimeout(function () {
-//     $("#loading").addClass("animated");
-//     $("#loading").addClass("fadeOut");
-//     setTimeout(function () {
-//       $("#loading").removeClass("animated");
-//       $("#loading").removeClass("fadeOut");
-//       $("#loading").css("display", "none");
-//     }, 800);
-//   }, 500);
-// }
-
-// const reposPromise = getRepos();
-
-// reposPromise
-//   .then(generateHTML)
-//   .then(insertReposIntoPage);
