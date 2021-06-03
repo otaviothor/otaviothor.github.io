@@ -15,16 +15,16 @@
 </head>
 
 <body>
-    <div id="loading">
+    <!-- <div id="loading">
         <div id="spinner"></div>
-    </div>
+    </div> -->
     <div id="profile">
         <img src="https://avatars1.githubusercontent.com/u/48496163" />
         <div id="username">
-            <span>otávio silva</span>
-            <a href="https://github.com/otaviothor">@otaviothor</a>
+            <span>{{ user.name }}</span>
+            <a href="https://github.com/otaviothor">@{{ user.login }}</a>
         </div>
-        <div id="userbio">somewhere in space</div>
+        <div id="userbio">{{ user.bio }}</div>
         <div id="about">
             <span>
                 <i class="fas fa-envelope"></i>
@@ -36,7 +36,7 @@
             </span>
             <span>
                 <i class="fas fa-map-marker-alt"></i>
-                são paulo - brasil
+                {{ user.location }}
             </span>
             <div class="socials">
                 <span>
@@ -75,7 +75,7 @@
     <div id="display">
         <div id="work">
             <h1>work.</h1>
-            <div class="projects" id="app">
+            <div class="projects" id="work">
                 <repo-card 
                     v-for="repo in repos"
                     v-bind:repo="repo"
