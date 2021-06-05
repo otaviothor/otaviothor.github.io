@@ -19,59 +19,48 @@
         <div id="spinner"></div>
     </div>
     <div class="container">
-        <span id="profile">
-            <header>
-                <img src="https://avatars1.githubusercontent.com/u/48496163?v=4" class="profile-image"
-                    alt="Foto de perfil" />
-                <h1 class="title">{{ user.name }}</h1>
-            </header>
-            <main>
-                <section class="details">
-                    <p>
-                        <a href="mailto:otaviosilva2632@gmail.com" class="link" target="_blank">
-                            e-mail
-                        </a>
-                        <span>|</span>
-                        <span>
-                            são paulo - brasil
-                        </span>
-                    </p>
-                    <p class="socials">
-                        <a href="https://instagram.com/otaviothor_" target="_blank" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://dribbble.com/otaviothor" target="_blank" title="Dribbble">
-                            <i class="fab fa-dribbble"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/otaviosilva02/" target="_blank" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://medium.com/@otaviothor" target="_blank" title="Medium">
-                            <i class="fab fa-medium-m"></i>
-                        </a>
-                        <a href="https://github.com/otaviothor" target="_blank" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://twitter.com/otaviothor_" target="_blank" title="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </p>
-                </section>
-                <section class="work">
-                    <h2 class="title">work.</h2>
-                    <ul class="list">
-                        <li class="list-item" v-for="repo in repos">
-                            <a href="">{{ repo.name }}</a>
-                            <span>{{ repo.description }}</span>
-                            <div>
-                                <span><i class="fas fa-code"></i>{{ repo.language }}</span>
-                                <span><i class="fas fa-star"></i>{{ repo.stargazers_count }}</span>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-            </main>
-        </span>
+        <header id="profile">
+            <img src="https://avatars1.githubusercontent.com/u/48496163?v=4" class="profile-image"
+                alt="Foto de perfil" />
+            <h1 class="title">{{ user.name }}</h1>
+            <p class="details">
+                <a href="mailto:otaviosilva2632@gmail.com" class="link" target="_blank">
+                    e-mail
+                </a>
+                <span>|</span>
+                <span>
+                    são paulo - brasil
+                </span>
+            </p>
+            <p class="socials">
+                <a href="https://instagram.com/otaviothor_" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://dribbble.com/otaviothor" target="_blank" title="Dribbble">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/otaviosilva02/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://medium.com/@otaviothor" target="_blank" title="Medium">
+                    <i class="fab fa-medium-m"></i>
+                </a>
+                <a href="https://github.com/otaviothor" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/otaviothor_" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </p>
+        </header>
+        <main id="repos">
+            <section class="work">
+                <h2 class="title">work.</h2>
+                <ul class="list">
+                    <repo-item v-for="repo in repos" v-bind:repo="repo" v-bind:key="repo.id"></repo-item>
+                </ul>
+            </section>
+        </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>

@@ -80,35 +80,35 @@ header .profile-image {
 
 header .title {
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-top: 1rem;
 }
 
-.details {
+header .details {
   font-size: 1.2rem;
   text-align: center;
   color: var(--dark-grey);
 }
 
-.details p {
+header .details {
   margin-top: 1rem;
 }
 
-.details .link {
+header .details .link {
   color: var(--dark-grey);
   text-decoration: none;
 }
 
-.details .link:hover {
+header .details .link:hover {
   text-decoration: underline;
 }
 
-.details .socials {
+header .socials {
   margin-top: 1rem;
   text-decoration: none;
 }
 
-.details .socials a {
+header .socials a {
   display: inline-block;
   margin: 0 16px 16px;
   color: var(--dark-grey);
@@ -117,6 +117,7 @@ header .title {
 .work .title {
   font-size: 2rem;
   margin-top: 1rem;
+  font-weight: 600;
 }
 
 .work .list {
