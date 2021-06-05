@@ -1,23 +1,3 @@
-Vue.component("repo-card", {
-  props: ["repo"],
-  template: `
-    <a href="{{ repo.html_url }}">
-      <section>
-        <div class="header">
-          <h2>{{ repo.name }}</h2>
-          <div class="info">
-            <span><i class="fas fa-code"></i>{{ repo.language }}</span>
-            <span><i class="fas fa-star"></i>{{ repo.stargazers_count }}</span>
-          </div>
-        </div>
-        <div class="about_section">
-          <span>{{ repo.description }}</span>
-        </div>
-      </section>
-    </a>
-  `,
-});
-
 const profile = new Vue({
   el: "#profile",
   data: {
