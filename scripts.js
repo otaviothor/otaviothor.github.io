@@ -24,3 +24,14 @@ const profile = new Vue({
     this.getRepos();
   },
 });
+
+setTimeout(function () {
+  const loading = document.getElementById("loading");
+  loading.classList.toggle("animated");
+  loading.classList.toggle("fadeOut");
+  setTimeout(function () {
+    loading.classList.toggle("animated");
+    loading.classList.toggle("fadeOut");
+    loading.style.display = "none";
+  }, 800);
+}, 1500);
