@@ -22,6 +22,7 @@ const profile = new Vue({
   el: "#profile",
   data: {
     user: {},
+    repos: [],
     user: "otaviothor",
   },
   methods: {
@@ -30,20 +31,6 @@ const profile = new Vue({
         .then((res) => res.json())
         .then((data) => (this.user = data));
     },
-  },
-  beforeMount() {
-    this.getUser();
-  },
-});
-
-const work = new Vue({
-  el: "#work",
-  data: {
-    user: {},
-    repos: [],
-    user: "otaviothor",
-  },
-  methods: {
     getRepos() {
       fetch(`https://api.github.com/users/${this.user}/repos`)
         .then((res) => res.json())
@@ -51,17 +38,7 @@ const work = new Vue({
     },
   },
   beforeMount() {
+    this.getUser();
     this.getRepos();
   },
 });
-
-setTimeout(function () {
-  const loading = document.getElementById("loading");
-  loading.classList.toggle("animated");
-  loading.classList.toggle("fadeOut");
-  setTimeout(function () {
-    loading.classList.toggle("animated");
-    loading.classList.toggle("fadeOut");
-    loading.style.display = "none";
-  }, 800);
-}, 1500);
