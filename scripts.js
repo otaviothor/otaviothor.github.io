@@ -32,7 +32,9 @@ const profile = new Vue({
         .then((data) => (this.user = data));
     },
     getRepos() {
-      fetch(`https://api.github.com/users/${this.user}/repos`)
+      fetch(
+        `https://api.github.com/users/${this.user}/repos?per_page=100&sort=created`
+      )
         .then((res) => res.json())
         .then((data) => (this.repos = data));
     },
