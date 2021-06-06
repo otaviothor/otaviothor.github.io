@@ -57,7 +57,11 @@
             <section class="work">
                 <h2 class="title">work.</h2>
                 <ul class="list">
-                    <repo-item v-for="repo in repos" v-bind:repo="repo" v-bind:key="repo.id"></repo-item>
+                    <repo-item 
+                        v-for="repo in repos" 
+                        v-bind:repo="repo" 
+                        v-bind:key="repo.id"
+                    ></repo-item>
                 </ul>
             </section>
         </main>

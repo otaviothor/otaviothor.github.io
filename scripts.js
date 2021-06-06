@@ -1,9 +1,14 @@
 Vue.component("repo-item", {
   props: ["repo"],
+  methods: {
+    goToRepo(repoURL) {
+      window.open(repoURL, "_blank");
+    },
+  },
   template: `
-    <li class="list-item">
-      <a href="{{ repo.html_url }}">{{ repo.name }}</a>
-      <span>{{ repo.description }}</span>
+    <li class="list-item" v-on:click="goToRepo(repo.html_url)">
+      <span class="name">{{ repo.name }}</span>
+      <span class="description">{{ repo.description }}</span>
       <div>
         <span><i class="fas fa-code"></i>{{ repo.language }}</span>
         <span><i class="fas fa-star"></i>{{ repo.stargazers_count }}</span>

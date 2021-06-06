@@ -132,17 +132,18 @@ header .socials a {
   flex-direction: column;
 }
 
-.work .list-item a {
+.work .list-item .name {
   color: #0070f3;
   text-decoration: none;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
-.work .list-item a:hover {
+.work .list-item .name:hover {
   text-decoration: underline;
 }
 
-.work .list-item span {
+.work .list-item .description {
   color: #666;
   margin: 8px 0;
 }
