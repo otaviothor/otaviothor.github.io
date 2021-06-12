@@ -20,14 +20,14 @@ Vue.component("repo-item", {
 const profile = new Vue({
   el: "#profile",
   data: {
-    user: {},
+    userData: {},
     user: "otaviothor",
   },
   methods: {
     getUser() {
       fetch(`https://api.github.com/users/${this.user}`)
         .then((res) => res.json())
-        .then((data) => (this.user = data));
+        .then((data) => (this.userData = data));
     },
   },
   beforeMount() {
