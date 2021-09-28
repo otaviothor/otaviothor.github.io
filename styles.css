@@ -106,11 +106,14 @@ header .details .link:hover {
 header .socials {
   margin-top: 1rem;
   text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 header .socials a {
   display: inline-block;
-  margin: 0 16px 16px;
+  margin: 0 24px 1rem;
   color: var(--dark-grey);
 }
 
