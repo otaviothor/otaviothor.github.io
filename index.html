@@ -1,81 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>quem ama mais?</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>otaviothor</title>
-    <link rel="icon" href="https://avatars1.githubusercontent.com/u/48496163?v=4" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" />
-    <link rel="stylesheet" href="./styles.css">
-</head>
-
-<body>
-
-    <div id="loading">
-        <div id="spinner"></div>
-    </div>
+  <body>
     <div class="container">
-        <header id="profile">
-            <img src="https://avatars1.githubusercontent.com/u/48496163?v=4" class="profile-image"
-                alt="Foto de perfil" />
-            <h1 class="title">{{ userData.name }}</h1>
-            <p class="details">
-                <a href="mailto:otaviosilva2632@gmail.com" class="link" target="_blank">
-                    e-mail
-                </a>
-                <span>|</span>
-                <span>
-                    são paulo - brasil
-                </span>
-            </p>
-            <p class="socials">
-                <a href="https://instagram.com/otaviothor_" target="_blank" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://dribbble.com/otaviothor" target="_blank" title="Dribbble">
-                    <i class="fab fa-dribbble"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/otaviosilva02/" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://twitter.com/otaviothor_" target="_blank" title="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://medium.com/@otaviothor" target="_blank" title="Medium">
-                    <i class="fab fa-medium-m"></i>
-                </a>
-                <a href="https://github.com/otaviothor" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://stackoverflow.com/users/15797489/ot%C3%A1vio-silva" target="_blank" title="Stackoverflow">
-                    <i class="fab fa-stack-overflow"></i>
-                </a>
-                <a href="https://dev.to/otaviothor" target="_blank" title="DEV Community">
-                    <i class="fab fa-dev"></i>
-                </a>
-            </p>
-        </header>
-        <main id="repos">
-            <section class="work">
-                <h2 class="title">work.</h2>
-                <ul class="list">
-                    <repo-item 
-                        v-for="repo in repos" 
-                        v-bind:repo="repo" 
-                        v-bind:key="repo.id"
-                    ></repo-item>
-                </ul>
-            </section>
-        </main>
+      <h1>quem ama mais?</h1>
+      <div class="btn-container">
+        <button class="btn" id="btnOtavio">otávio</button>
+        <button class="btn" id="btnLuana">luana</button>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="./scripts.js"></script>
+    <style>
+      body {
+        height: 100vh;
+        background-color: #eeeeee;
+        background-image: url(https://i.pinimg.com/736x/80/71/55/807155c5ad6c7b10700dd9f98a7a0e61.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
 
-</body>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
+      .container > h1 {
+        background-color: #eeeeee;
+        color: #155793;
+        text-align: center;
+        padding: 8px;
+      }
+
+      .btn-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .btn {
+        padding: 16px;
+        cursor: pointer;
+        background-color: #b0cfee;
+        color: #155793;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    </style>
+
+    <script>
+      const btnOtavio = window.document.getElementById("btnOtavio");
+      const btnLuana = window.document.getElementById("btnLuana");
+
+      let leftOrRight = "LEFT";
+
+      const toggleButtonPosition = () => {
+        const larguraJanela = window.innerWidth;
+        const alturaJanela = window.innerHeight;
+
+        const posicaoX = Math.random() * (larguraJanela - 120);
+        const posicaoY = Math.random() * (alturaJanela - 200);
+
+        document.getElementById("btnLuana").style.marginTop = posicaoY + "px";
+
+        if (leftOrRight === "LEFT") {
+          document.getElementById("btnLuana").style.marginRight =
+            posicaoX + "px";
+          leftOrRight = "RIGHT";
+        } else {
+          document.getElementById("btnLuana").style.marginLeft =
+            posicaoX + "px";
+          leftOrRight = "LEFT";
+        }
+      };
+
+      btnLuana.addEventListener("mouseenter", toggleButtonPosition);
+      btnLuana.addEventListener("click", toggleButtonPosition);
+      btnOtavio.addEventListener("click", () => {
+        alert("🥰🥰 acertou. eu te amo meu amor 🥰🥰");
+      });
+    </script>
+  </body>
 </html>
