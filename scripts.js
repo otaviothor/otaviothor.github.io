@@ -64,4 +64,4 @@ setTimeout(function () {
     loading.classList.toggle("fadeOut");
     loading.style.display = "none";
   }, 800);
-}, 1500);
+}, 1000);
