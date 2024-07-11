@@ -3,16 +3,378 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>otávio silva</title>
+    <link
+      rel="icon"
+      href="https://avatars1.githubusercontent.com/u/48496163?v=4"
+      type="image/png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <style>
+      :root {
+        --dark-grey: #212121;
+        --bg-color: #fff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        user-select: none;
+      }
+
+      html,
+      body {
+        font-size: 18px;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      #loading {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background: var(--bg-color);
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      #spinner {
+        animation: rotate 0.5s infinite linear;
+        width: 50px;
+        height: 50px;
+        border: 2px solid var(--bg-color);
+        border-bottom: 2px solid var(--dark-grey);
+        border-bottom: 2px solid var(--dark-grey);
+        border-radius: 50%;
+        margin: 0;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .container {
+        max-width: 36rem;
+        padding: 0 1rem;
+        margin: 3rem auto 6rem;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header .profile-image {
+        border-radius: 50%;
+        width: 144px;
+        height: 144px;
+      }
+
+      header .title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 1rem;
+      }
+
+      header .details {
+        font-size: 1.2rem;
+        text-align: center;
+        color: var(--dark-grey);
+      }
+
+      header .details {
+        margin-top: 1rem;
+      }
+
+      header .details .link {
+        color: var(--dark-grey);
+        text-decoration: none;
+      }
+
+      header .details .link:hover {
+        text-decoration: underline;
+      }
+
+      header .socials {
+        margin-top: 1rem;
+        text-decoration: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      header .socials a {
+        display: inline-block;
+        margin: 0 24px 1rem;
+        color: var(--dark-grey);
+      }
+
+      .work .title {
+        font-size: 2rem;
+        margin-top: 1rem;
+        font-weight: 600;
+      }
+
+      .work .list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .work .list-item {
+        margin: 1rem 0 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .work .list-item .name {
+        color: #0070f3;
+        text-decoration: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      .work .list-item .name:hover {
+        text-decoration: underline;
+      }
+
+      .work .list-item .description {
+        color: #666;
+        margin: 8px 0;
+      }
+
+      .work .list-item div {
+        color: rgb(70, 70, 70);
+        font-size: 0.8rem;
+      }
+
+      .work .list-item div span {
+        margin-right: 8px;
+      }
+
+      .work .list-item div span i {
+        margin-right: 8px;
+      }
+    </style>
+
+    <div id="loading">
+      <div id="spinner"></div>
+    </div>
+    <div class="container">
+      <header id="profile">
+        <img
+          src="https://avatars1.githubusercontent.com/u/48496163?v=4"
+          class="profile-image"
+          alt="Foto de perfil"
+        />
+        <h1 class="title">{{ userData.name }}</h1>
+        <p class="details">
+          <a
+            href="mailto:otaviosilva2632@gmail.com"
+            class="link"
+            target="_blank"
+          >
+            e-mail
+          </a>
+          <span>|</span>
+          <span> são paulo - brasil </span>
+        </p>
+        <p class="socials">
+          <a
+            href="https://instagram.com/otaviothor_"
+            target="_blank"
+            title="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://dribbble.com/otaviothor"
+            target="_blank"
+            title="Dribbble"
+          >
+            <i class="fab fa-dribbble"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/otaviosilva02/"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://twitter.com/otaviothor_"
+            target="_blank"
+            title="Twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href="https://medium.com/@otaviothor"
+            target="_blank"
+            title="Medium"
+          >
+            <i class="fab fa-medium-m"></i>
+          </a>
+          <a
+            href="https://github.com/otaviothor"
+            target="_blank"
+            title="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://stackoverflow.com/users/15797489/ot%C3%A1vio-silva"
+            target="_blank"
+            title="Stackoverflow"
+          >
+            <i class="fab fa-stack-overflow"></i>
+          </a>
+          <a
+            href="https://dev.to/otaviothor"
+            target="_blank"
+            title="DEV Community"
+          >
+            <i class="fab fa-dev"></i>
+          </a>
+        </p>
+      </header>
+      <main id="repos">
+        <section class="work">
+          <h2 class="title">work.</h2>
+
+          <ul class="list">
+            <repo-item
+              v-for="repo in repos"
+              v-bind:repo="repo"
+              v-bind:key="repo.id"
+            ></repo-item>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+      Vue.component("repo-item", {
+        props: ["repo"],
+        methods: {
+          goToRepo(repoURL) {
+            window.open(repoURL, "_blank");
+          },
+        },
+        template: `
+    <li class="list-item" v-on:click="goToRepo(repo.html_url)">
+      <span class="name">{{ repo.name }}</span>
+      <span class="description">{{ repo.description }}</span>
+      <div>
+        <span><i class="fas fa-code"></i>{{ repo.language }}</span>
+        <span><i class="fas fa-star"></i>{{ repo.stargazers_count }}</span>
+      </div>
+    </li>
+  `,
+      });
+
+      const profile = new Vue({
+        el: "#profile",
+        data: {
+          userData: {},
+          user: "otaviothor",
+        },
+        methods: {
+          getUser() {
+            fetch(`https://api.github.com/users/${this.user}`)
+              .then((res) => res.json())
+              .then((data) => (this.userData = data));
+          },
+        },
+        beforeMount() {
+          this.getUser();
+        },
+      });
+
+      const repos = new Vue({
+        el: "#repos",
+        data: {
+          repos: [],
+          user: "otaviothor",
+        },
+        methods: {
+          getRepos() {
+            fetch(
+              `https://api.github.com/users/${this.user}/repos?per_page=100&sort=created`
+            )
+              .then((res) => res.json())
+              .then((data) => (this.repos = data));
+          },
+        },
+        beforeMount() {
+          this.getRepos();
+        },
+      });
+
+      setTimeout(function () {
+        const loading = document.getElementById("loading");
+        loading.classList.toggle("animated");
+        loading.classList.toggle("fadeOut");
+        setTimeout(function () {
+          loading.classList.toggle("animated");
+          loading.classList.toggle("fadeOut");
+          loading.style.display = "none";
+        }, 800);
+      }, 1000);
+    </script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>quem ama mais?</title>
   </head>
 
   <body>
     <div class="container">
-      <!-- <h1>quem ama mais?</h1>
+      <h1>quem ama mais?</h1>
       <div class="btn-container">
         <button class="btn" id="btnOtavio">otávio</button>
         <button class="btn" id="btnLuana">luana</button>
-      </div> -->
+      </div>
     </div>
 
     <style>
@@ -26,7 +388,8 @@
       }
 
       .container {
-        display: flex;
+        display: none;
+        /* display: flex; */
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -95,4 +458,4 @@
       //   });
     </script>
   </body>
-</html>
+</html> -->
